@@ -1,15 +1,32 @@
-import logo from '../logo.svg';
-
 export default function NavBar(props){
+    let trigger;
     return (
-        <nav className="navBar">
-            <img src={logo} alt="logo" className='logo'></img>
-        <ul className="nav-list">
-            <li className="nav-item"><a href="#" className="nav-link">Home</a></li>
-            <li className="nav-item"><a href="#" className="nav-link">Se connecter</a></li>
-            <li className="nav-item"><a href="#" className="nav-link">S'inscrire</a></li>
-            <li className="nav-item"><a href="#" className="nav-link">Contactez-nous</a></li>
-        </ul>
-    </nav>
+        <header className='app-header'>
+            <div className="header-left">
+                <h1 className="header-title bigText">Social Media Dashboard</h1>
+                <p className="minText">Total Followers : 23,004</p>
+            </div>
+            <div className="header-right">
+                <span className='darkMode minText text-dmode'>Dark Mode</span>
+                <label className="switch">
+                    <input type="checkbox"></input>
+                    <span className="slider round" id='trigger' 
+                    onClick={
+                        () => {
+                            if(trigger || document.body.classList.contains('light-theme')){
+                                document.body.classList.add('dark-theme')
+                                document.body.classList.remove('light-theme')
+
+                                trigger = false;
+                            }else{
+                                document.body.classList.remove('dark-theme')
+                                document.body.classList.add('light-theme')
+                                trigger = true;
+                            }
+                        }
+                    }></span>
+                </label>
+            </div>
+        </header>
     )
 }

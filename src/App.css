@@ -19,20 +19,153 @@
 */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 :root{
-  --bg : hsl(0, 0%, 100%);
-  --pale-blue : hsl(225, 100%, 98%);
-  --card-bg : hsl(227, 47%, 96%);
-  --text-grey-blue :hsl(228, 12%, 44%);
-  --text-dark-blue : hsl(230, 17%, 14%);
   --lime-green: hsl(163, 72%, 41%);
   --bright-red: hsl(356, 69%, 56%);
   --facebook: hsl(208, 92%, 53%);
   --twitter: hsl(203, 89%, 53%);
-  --instagram: linear gradient hsl(37, 97%, 70%) to hsl(329, 70%, 58%);
-  --youTube: hsl(348, 97%, 39%);
+  --instagram: linear-gradient(90deg, rgba(241,235,36,1) 0%, rgba(231,151,22,1) 58%, rgba(232,104,195,1) 88%);
+  --youtube: hsl(348, 97%, 39%);
+}
+.dark-theme {
+  --bg : hsl(230, 17%, 14%);
+  --top-bg : hsl(232, 19%, 15%);
+  --card-bg : hsl(228, 28%, 20%);
+  --min-text : hsl(228, 34%, 66%);
+  --big-text : hsl(0, 0%, 100%);
+  --toggle : linear-gradient(hsl(210, 78%, 56%),hsl(146, 68%, 55%));
+  transition: ease-in-out 1s ;
+}
+.light-theme {
+  --bg : hsl(0, 0%, 100%);
+  --top-bg : hsl(225, 100%, 98%);
+  --card-bg : hsl(227, 47%, 96%);
+  --min-text :hsl(228, 12%, 44%);
+  --big-text : hsl(230, 17%, 14%);
+  --toggle : hsl(230, 22%, 74%);
+  transition: ease-in-out 1s;
 }
 body{
   width: 1440px;
   font-size: 14px;
   font-family: 'Inter', sans-serif;
+  background-color: var(--bg);
+  padding: 40px;
+}
+.bigText{
+  color : var(--big-text)
+}
+.minText{
+  color : var(--min-text)
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 23px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--toggle);
+  -webkit-transition: .4s;
+  transition: .4s;
+  
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 0.5px;
+  bottom: 2.5px;
+  background-color: var(--bg);;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px;
+}
+input:checked + .slider {
+  background: var(--toggle);
+}
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+input:checked + .slider:before {
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);  
+}
+.round {
+  border-radius: 34px;
+}
+.app-header{
+  display: flex;
+  align-items: center;
+}
+.header-right{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 65%;
+}
+.text-dmode{
+  margin-right: 10px;
+}
+.container-cards-socials{
+  display: flex;
+  justify-content: space-between;
+}
+.card{
+  width: 300px;
+  height: 250px;
+  padding: 20px;
+  background-color: var(--card-bg);
+  border: solid var(--card-bg) 5px;
+  border-radius: 5px;
+}
+.card-header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo-social{
+  margin-right: 5px;
+}
+.card-body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+h2{
+  margin: 0;
+  margin-top: 10%;
+}
+.titleBig{
+  font-weight: 700;
+  font-size: 70px;
+}
+.card-sub{
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+.benefits{
+  text-align: center;
+  font-weight: bold;
+  color: var(--lime-green);
+}
+.down{
+  color: var(--bright-red);
+}
+.benefits img {
+  margin: 0px 5px 3px 0px;
 }
