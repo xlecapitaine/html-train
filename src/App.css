@@ -49,7 +49,8 @@ body{
   font-size: 14px;
   font-family: 'Inter', sans-serif;
   background-color: var(--bg);
-  padding: 40px;
+  padding: 20px 40px 40px 40px;
+  overflow: hidden;
 }
 .bigText{
   color : var(--big-text)
@@ -124,8 +125,8 @@ input:checked + .slider:before {
   justify-content: space-between;
 }
 .card{
-  width: 300px;
-  height: 250px;
+  width: 290px;
+  height: 200px;
   padding: 20px;
   background-color: var(--card-bg);
   border: solid var(--card-bg) 5px;
@@ -151,21 +152,56 @@ h2{
 }
 .titleBig{
   font-weight: 700;
-  font-size: 70px;
+  font-size: 50px;
 }
 .card-sub{
-  font-size: 20px;
+  font-size: 15px;
   text-transform: uppercase;
   letter-spacing: 5px;
 }
 .benefits{
-  text-align: center;
   font-weight: bold;
   color: var(--lime-green);
+}
+.card-footer .benefits{
+  text-align: center;
 }
 .down{
   color: var(--bright-red);
 }
 .benefits img {
   margin: 0px 5px 3px 0px;
+}
+.container-cards-overview{
+  width: 1440px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+} 
+.card-container{
+  background-color: var(--card-bg);
+  width: 300px;
+  height: 100px;
+  padding: 15px;
+  border: hidden;
+  border-radius: 15px;
+  margin: 0 15px 2% 0;
+}
+.card-container .header, .card-container .body{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+.card-container .body h2, .body .benefits{
+  margin-top: 7%;
+}
+.card_logo_overview{
+  width: 20px;
+  height: 20px;
+}
+.number-card-overview{
+  font-size: 25px;
 }

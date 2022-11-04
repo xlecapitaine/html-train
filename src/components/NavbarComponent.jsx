@@ -3,7 +3,7 @@ export default function NavBar(props){
     return (
         <header className='app-header'>
             <div className="header-left">
-                <h1 className="header-title bigText">Social Media Dashboard</h1>
+                <h1 className="header-title bigText">{props.title}</h1>
                 <p className="minText">Total Followers : 23,004</p>
             </div>
             <div className="header-right">
