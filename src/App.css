@@ -45,7 +45,7 @@
   transition: ease-in-out 1s;
 }
 body{
-  width: 1440px;
+  max-width: 1440px;
   font-size: 14px;
   font-family: 'Inter', sans-serif;
   background-color: var(--bg);
@@ -110,12 +110,12 @@ input:checked + .slider:before {
 .app-header{
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 .header-right{
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-left: 65%;
 }
 .text-dmode{
   margin-right: 10px;
@@ -173,7 +173,7 @@ h2{
   margin: 0px 5px 3px 0px;
 }
 .container-cards-overview{
-  width: 1440px;
+  max-width: 1440px;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -204,4 +204,13 @@ h2{
 }
 .number-card-overview{
   font-size: 25px;
+}
+.header-title{
+  color: red;
+}
+
+@media (max-width:480px) and(max-width:868px) {
+  body{
+    overflow: scroll;
+  }
 }
