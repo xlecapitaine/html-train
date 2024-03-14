@@ -1,5 +1,25 @@
+import React, { useState, useEffect } from 'react';
+
 export default function NavBar(props){
-    let trigger;
+    const [isDark, setDark] = useState(() => {
+        const savedTheme = localStorage.getItem('isDarkTheme');
+        return savedTheme !== null ? JSON.parse(savedTheme) : false;
+    });
+
+    useEffect(() => {
+        if (isDark) {
+            document.body.classList.add('dark-theme');
+            document.body.classList.remove('light-theme');
+        } else {
+            document.body.classList.add('light-theme');
+            document.body.classList.remove('dark-theme');
+        }
+        localStorage.setItem('isDarkTheme', JSON.stringify(isDark));
+    }, [isDark]); // Écoute les changements de `isDark`.
+
+    const toggleDarkMode = () => {
+        setDark(!isDark); // Inverse la valeur de `isDark`.
+    };
     return (
         <header className='app-header'>
             <div className="header-left">
@@ -9,22 +29,8 @@ export default function NavBar(props){
             <div className="header-right">
                 <span className='darkMode minText text-dmode'>Dark Mode</span>
                 <label className="switch">
-                    <input type="checkbox"></input>
-                    <span className="slider round" id='trigger' 
-                    onClick={
-                        () => {
-                            if(trigger || document.body.classList.contains('light-theme')){
-                                document.body.classList.add('dark-theme')
-                                document.body.classList.remove('light-theme')
-
-                                trigger = false;
-                            }else{
-                                document.body.classList.remove('dark-theme')
-                                document.body.classList.add('light-theme')
-                                trigger = true;
-                            }
-                        }
-                    }></span>
+                    <input type="checkbox" checked={isDark}></input>
+                    <span className="slider round" id='trigger' onClick={toggleDarkMode}></span>
                 </label>
             </div>
         </header>
